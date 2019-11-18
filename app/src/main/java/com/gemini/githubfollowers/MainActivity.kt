@@ -6,6 +6,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -26,28 +29,57 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         mainViewModel = ViewModelProviders.of(this).get(GithubViewModel::class.java)
-        handleIntent(intent)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.search_menu, menu)
 
-        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        (menu.findItem(R.id.search).actionView as SearchView).apply {
-            setSearchableInfo(searchManager.getSearchableInfo(componentName))
+        val searchItem =  menu.findItem(R.id.search)
+        val searchView = searchItem.actionView as SearchView
+
+        searchView.isIconifiedByDefault = false
+        searchView.queryHint = getString(R.string.search_hit)
+
+        searchView.setOnQueryTextFocusChangeListener { view, hasFocus ->
+            if (hasFocus) {
+                searchView.showKeyboard()
+            }
+            else {
+                searchView.hideKeyboard()
+            }
         }
+
+        searchItem.setOnActionExpandListener(object: MenuItem.OnActionExpandListener {
+            override fun onMenuItemActionExpand(p0: MenuItem?): Boolean {
+                searchView.isIconified = false
+                searchView.requestFocusFromTouch()
+                return true
+            }
+
+            override fun onMenuItemActionCollapse(p0: MenuItem?): Boolean {
+                // when back, clear all search
+                searchView.setQuery("", true)
+                return true
+            }
+        })
+
+        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                getFollowerList(query)
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                // do something on search text changed
+                return true
+            }
+        })
 
         return true
     }
 
 
-    private fun handleIntent(intent: Intent) {
-
-        if (Intent.ACTION_SEARCH == intent.action) {
-            val query = intent.getStringExtra(SearchManager.QUERY)
-            getFollowerList(query)
-        }
-    }
 
     private fun getFollowerList(username: String) {
         mainViewModel?.fetchFollowers(username)
@@ -73,5 +105,15 @@ class MainActivity : AppCompatActivity() {
             mIntent.putExtra(BUNDLE_USERNAME, Follower.login)
             startActivity(mIntent)
         }
+    }
+
+    fun View.showKeyboard() {
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY)
+    }
+
+    fun View.hideKeyboard() {
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(getWindowToken(), 0)
     }
 }
