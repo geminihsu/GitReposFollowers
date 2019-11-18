@@ -8,7 +8,7 @@ const val SHOW_INITIAL = 1
 const val SHOW_IMAGE = 2
 const val BUNDLE_USERNAME = "username"
 const val TEST_USER_NAME = "geminihsu"
-
+const val USERNAME_QUERY = "username_query"
 /*
    Test constant variable
  */

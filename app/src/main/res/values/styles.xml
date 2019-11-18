@@ -6,6 +6,13 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:searchViewStyle">@style/searchStyle</item>
     </style>
-
-</resources>
+    <style name="searchStyle" parent="Widget.AppCompat.SearchView">
+        <item name="colorPrimary">@color/white</item>
+        <item name="iconifiedByDefault">false</item>
+        <item name="android:queryHint">@string/search_hit</item>
+        <item name="android:searchIcon">@null</item>
+        <item name="android:focusable">true</item>
+    </style>
+    </resources>
