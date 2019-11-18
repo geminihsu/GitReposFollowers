@@ -13,10 +13,10 @@ It implementing Kotlin + MVVM + Architecture components.
 * Mockito 
  
 # Folowers list ScreenShot
-![alt text](https://github.com/geminihsu/GitReposFollowers/blob/master/screenshot/Screenshot_20191117-161231.png)
+![alt text](https://github.com/geminihsu/GitReposFollowers/blob/master/screenshot/Screenshot_20191118-120352.png)
 
 # UserDetail ScreenShot
-![alt text](https://github.com/geminihsu/GitReposFollowers/blob/master/screenshot/Screenshot_20191118-120352.png)
+![alt text](https://github.com/geminihsu/GitReposFollowers/blob/master/screenshot/Screenshot_20191118-115641.png)
 
 # Folder structure
 - [x] **model** : Follower and UserInfo collection property mapping with Dto response
