@@ -11,7 +11,7 @@ import com.gemini.githubfollowers.constants.SHOW_IMAGE
 import com.gemini.githubfollowers.constants.SHOW_INITIAL
 import com.gemini.githubfollowers.viewmodel.GithubViewModel
 import kotlinx.android.synthetic.main.activity_user_detail.location
-import kotlinx.android.synthetic.main.activity_user_detail.mail
+import kotlinx.android.synthetic.main.activity_user_detail.email
 import kotlinx.android.synthetic.main.avatar_layout.display_username
 import kotlinx.android.synthetic.main.avatar_layout.followers
 import kotlinx.android.synthetic.main.avatar_layout.following
@@ -27,6 +27,7 @@ class UserDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_user_detail)
         val actionbar = supportActionBar
         actionbar?.setDisplayHomeAsUpEnabled(true)
+        actionbar?.setBackgroundDrawable(getDrawable(R.color.colorPrimary))
 
         mainViewModel = ViewModelProviders.of(this).get(GithubViewModel::class.java)
 
@@ -57,7 +58,11 @@ class UserDetailActivity : AppCompatActivity() {
             following.text = user.following.toString()
             repositories.text = user.public_repos.toString()
             location.text = user.location
-            mail.text = user.email
+
+            if(user.email.isNullOrEmpty())
+                email.text = getString(R.string.email_unavailable)
+            else
+                email.text = user.email
         })
     }
 

@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@android:color/white"
     tools:context=".UserDetailActivity">
 
          <com.google.android.material.appbar.AppBarLayout
@@ -30,9 +29,9 @@
              <ScrollView
                  android:layout_width="match_parent"
                  android:layout_height="match_parent"
+                 android:background="@color/white"
                  android:paddingTop="20dp"
                  android:paddingLeft="20dp"
-                 android:background="@android:color/white"
                  app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
                  <LinearLayout
@@ -57,6 +56,7 @@
                              android:id="@+id/location"
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
+                             android:layout_centerVertical="true"
                              android:layout_toRightOf="@+id/icon_address"
                              android:text="14546" />
                      </RelativeLayout>
@@ -72,9 +72,10 @@
                              android:src="@mipmap/ic_mail" />
 
                          <TextView
-                             android:id="@+id/mail"
+                             android:id="@+id/email"
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
+                             android:layout_centerVertical="true"
                              android:layout_toRightOf="@+id/icon_mail"
                              android:text="14546" />
                      </RelativeLayout>

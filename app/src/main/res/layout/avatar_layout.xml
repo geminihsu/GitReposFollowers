@@ -2,129 +2,129 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="@layout/activity_user_detail">
-   <RelativeLayout  android:orientation="vertical"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
         <com.gemini.githubfollowers.view.avatar.AvatarImageView
-            android:layout_centerHorizontal="true"
             android:id="@+id/avatar"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@mipmap/ic_launcher"
-          />
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/avatar"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
             android:gravity="center_horizontal"
-            android:textColor="@android:color/white"
-            android:layout_centerHorizontal="true"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_below="@+id/avatar"
             android:text="nam44555455e"
-           />
+            android:textColor="@android:color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/display_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/login"
-            android:textColor="@android:color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
             android:text="nam44555455e"
-            />
+            android:textColor="@android:color/white" />
 
         <LinearLayout
             android:id="@+id/linearlayout_content"
-            android:paddingTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/display_username"
             android:layout_centerHorizontal="true"
             android:orientation="horizontal"
-            android:layout_below="@+id/display_username"
-            >
+            android:paddingTop="20dp">
+
             <TextView
                 android:id="@+id/followers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@android:color/white"
-                android:orientation="horizontal"
-                android:textSize="18dp"
-                android:textStyle="bold"
                 android:gravity="center_horizontal"
-                android:text="@string/title_followers_count" />
+                android:orientation="horizontal"
+                android:text="@string/title_followers_count"
+                android:textColor="@android:color/white"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/following"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@android:color/white"
-                android:orientation="horizontal"
-                android:textSize="18dp"
-                android:textStyle="bold"
                 android:gravity="center_horizontal"
-                android:text="@string/title_following_count" />
+                android:orientation="horizontal"
+                android:text="@string/title_following_count"
+                android:textColor="@android:color/white"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/repositories"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@android:color/white"
                 android:gravity="center_horizontal"
-                android:textSize="18dp"
-                android:textStyle="bold"
                 android:orientation="horizontal"
-                android:text="@string/title_repositories_count" />
+                android:text="@string/title_repositories_count"
+                android:textColor="@android:color/white"
+                android:textSize="18dp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearlayout_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="20dp"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/linearlayout_content"
+            android:layout_centerHorizontal="true"
             android:orientation="horizontal"
-           >
+            android:paddingBottom="20dp">
+
             <TextView
                 android:id="@+id/title_followers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/darker_gray"
-                android:layout_weight="1"
-                android:textSize="12dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="@string/title_followers_count" />
+                android:text="@string/title_followers_count"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="12dp" />
 
             <TextView
                 android:id="@+id/title_following"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal"
-                android:textSize="12dp"
                 android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:text="@string/title_following_count"
                 android:textColor="@android:color/darker_gray"
-                android:text="@string/title_following_count" />
+                android:textSize="12dp" />
 
             <TextView
                 android:id="@+id/title_repositories"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal"
                 android:gravity="center_horizontal"
-                android:textSize="12dp"
+                android:orientation="horizontal"
+                android:text="@string/title_repositories_count"
                 android:textColor="@android:color/darker_gray"
-                android:text="@string/title_repositories_count" />
+                android:textSize="12dp" />
         </LinearLayout>
-   </RelativeLayout>
+    </RelativeLayout>
 </merge>
