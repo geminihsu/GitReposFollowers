@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">GitReposFollowers</string>
+    <string name="search">search</string>
+    <string name="search_hit">User Name</string>
+
+    <string name="home_activity_title">Home</string>
+    <string name="user_activity_title"></string>
+
+    <!--UserDetailActivity-->
+    <string name="title_followers_count">FOLLOWERS</string>
+    <string name="title_following_count">FOLLOWING</string>
+    <string name="title_repositories_count">REPOSITORIES</string>
+
+</resources>

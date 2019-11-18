@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    tools:context=".UserDetailActivity">
+
+         <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleGravity="top"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin" />
+
+                <include layout="@layout/avatar_layout" />
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+             <ScrollView
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:paddingTop="20dp"
+                 android:paddingLeft="20dp"
+                 android:background="@android:color/white"
+                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                 <LinearLayout
+                     android:id="@+id/linearlayout_profile"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:orientation="vertical"
+                     app:layout_constraintStart_toStartOf="parent"
+                     app:layout_constraintTop_toBottomOf="parent">
+                     >
+                     <RelativeLayout
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content">
+
+                         <ImageView
+                             android:id="@+id/icon_address"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:src="@mipmap/ic_map" />
+
+                         <TextView
+                             android:id="@+id/location"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_toRightOf="@+id/icon_address"
+                             android:text="14546" />
+                     </RelativeLayout>
+
+                     <RelativeLayout
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content">
+
+                         <ImageView
+                             android:id="@+id/icon_mail"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:src="@mipmap/ic_mail" />
+
+                         <TextView
+                             android:id="@+id/mail"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_toRightOf="@+id/icon_mail"
+                             android:text="14546" />
+                     </RelativeLayout>
+                 </LinearLayout>
+             </ScrollView>
+         </com.google.android.material.appbar.AppBarLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
