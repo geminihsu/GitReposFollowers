@@ -16,7 +16,7 @@ It implementing Kotlin + MVVM + Architecture components.
 ![alt text](https://github.com/geminihsu/GitReposFollowers/blob/master/screenshot/Screenshot_20191117-161231.png)
 
 # UserDetail ScreenShot
-![alt text](https://github.com/geminihsu/GitReposFollowers/blob/master/screenshot/Screenshot_20191117-161240.png)
+![alt text](https://github.com/geminihsu/GitReposFollowers/blob/master/screenshot/Screenshot_20191118-115641.png)
 
 # Folder structure
 - [x] **model** : Follower and UserInfo collection property mapping with Dto response
