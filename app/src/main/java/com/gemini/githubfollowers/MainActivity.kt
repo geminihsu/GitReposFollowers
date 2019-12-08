@@ -23,8 +23,8 @@ import kotlinx.android.synthetic.main.activity_main.follower_recycle_view
 
 class MainActivity : AppCompatActivity() {
 
-    private var mainViewModel: GithubViewModel? = null
-    private var followersAdapter: FollowersAdapter? = null
+    private lateinit var mainViewModel: GithubViewModel
+    private lateinit var followersAdapter: FollowersAdapter
     private var lastSearchQuery = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,8 +69,8 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun getFollowerList(username: String) {
-        mainViewModel?.fetchFollowers(username)
-        mainViewModel?.followers?.observe(this, Observer { followerList ->
+        mainViewModel.fetchFollowers(username)
+        mainViewModel.followers.observe(this, Observer { followerList ->
             prepareRecyclerView(followerList)
             title = (getString(R.string.home_activity_title))
         })
@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         if (!lastSearchQuery.isEmpty()) {
             searchView.setQuery(lastSearchQuery, false)
 
-            if (!mainViewModel?.followers?.value.isNullOrEmpty())
+            if (!mainViewModel.followers.value.isNullOrEmpty())
                 getFollowerList(lastSearchQuery)
         }
 
@@ -108,9 +108,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun prepareRecyclerView(blogList: List<Follower>?) {
+    private fun prepareRecyclerView(followerList: List<Follower>) {
 
-        followersAdapter = FollowersAdapter(blogList)
+        followersAdapter = FollowersAdapter(followerList)
 
         follower_recycle_view.setLayoutManager(GridLayoutManager(this, 3))
 

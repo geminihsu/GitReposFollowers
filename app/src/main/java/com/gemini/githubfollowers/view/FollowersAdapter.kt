@@ -13,11 +13,11 @@ import com.gemini.githubfollowers.constants.SHOW_INITIAL
 import com.gemini.githubfollowers.model.Follower
 import com.gemini.githubfollowers.view.avatar.AvatarImageView
 
-class FollowersAdapter(val followerList: List<Follower>?) :
-    RecyclerView.Adapter<FollowersAdapter.ViewHolder>() {
+class FollowersAdapter(val followerList: List<Follower>) :
+        RecyclerView.Adapter<FollowersAdapter.ViewHolder>() {
     var onItemClick: ((Follower) -> Unit)? = null
 
-    override fun getItemCount() = followerList!!.size
+    override fun getItemCount() = followerList.size
 
     private var mContext: Context? = null
 
@@ -26,11 +26,11 @@ class FollowersAdapter(val followerList: List<Follower>?) :
         this.mContext = parent.context;
 
         return ViewHolder(
-            LayoutInflater.from(parent.context).inflate(
-                R.layout.item_follower,
-                parent,
-                false
-            )
+                LayoutInflater.from(parent.context).inflate(
+                        R.layout.item_follower,
+                        parent,
+                        false
+                )
         )
     }
 
@@ -40,10 +40,12 @@ class FollowersAdapter(val followerList: List<Follower>?) :
         holder.avatarImageView.state = SHOW_INITIAL
 
         holder.avatarImageView.state = SHOW_IMAGE
-        Glide.with(mContext!!)
-            .load(follower.avatar_url)
-            .into(holder.avatarImageView)
+        mContext?.let {
+            Glide.with(it)
+                    .load(follower.avatar_url)
+                    .into(holder.avatarImageView)
 
+        }
 
         holder.login.text = follower.login
         holder.avatarImageView.setOnClickListener {
